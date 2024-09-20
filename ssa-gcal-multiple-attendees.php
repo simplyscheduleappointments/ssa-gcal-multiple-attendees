@@ -19,7 +19,7 @@
  */
 
 /**
- * Copyright (c) 2019 Simply Schedule Appointments (email : support@simplyscheduleappointments.com)
+ * Copyright (c) 2024 Simply Schedule Appointments (email : support@sssaplugin.com)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2 or, at
@@ -35,21 +35,31 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
-use \NSquared\SSA\Vendor\Google_Service_Calendar_EventAttendee as Google_Service_Calendar_EventAttendee;
 
-add_filter( 'ssa/appointment/calendar_attendees', 'ssa_include_attendees', 10, 2 );
+add_filter( 'ssa/appointment/attendees', 'ssa_include_attendees', 10, 2 );
 
-function ssa_include_attendees( $attendess, $appointment ) {
-  // If appointment type id is what you want, add extra attendees.
-  if ( 'YOUR APPOINTMENT ID' === $appointment['appointment_type_id'] ) {
-    // Create a new attendee object and set up the email and name.
-    $new_attendee = new Google_Service_Calendar_EventAttendee();
-    $new_attendee->setEmail('john@doe.com');
-    $new_attendee->setDisplayName('John Doe');
+function ssa_include_attendees( $attendess, $appt ) {
+	  				
+	$appointment_obj = new SSA_Appointment_Object( $appt );
 
-    // Add the attendee to the array of attendees.
-    $attendess[] = $new_attendee;
-  }
+  	// If appointment type id is what you want, add extra attendees.
+    if ( $appointment_obj->appointment_type_id == '1' ) {
 
+		// Create a new attendee array and set up the email and name.
+		$new_attendee1 = array(
+			'email' => 'usmankhalid738@gmail.com',
+			'name'  => 'Usman Khalid',
+		);
+
+		$new_attendee2 = array(
+			'email' => 'ssa.simplyfoxy@gmail.com',
+			'name'  => 'Simply Foxy',
+		);
+
+		// Add the attendee to the array of attendees.
+		$attendess[] = $new_attendee1;
+		$attendess[] = $new_attendee2;
+	}
+	  
   return $attendess;
 }
