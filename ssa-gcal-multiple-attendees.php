@@ -43,22 +43,16 @@ function ssa_include_attendees( $attendess, $appt ) {
 	$appointment_obj = new SSA_Appointment_Object( $appt );
 
   	// If appointment type id is what you want, add extra attendees.
-    if ( $appointment_obj->appointment_type_id == '1' ) {
+    	if ( $appointment_obj->appointment_type_id == '1' ) {
 
 		// Create a new attendee array and set up the email and name.
 		$new_attendee1 = array(
-			'email' => 'usmankhalid738@gmail.com',
-			'name'  => 'Usman Khalid',
-		);
-
-		$new_attendee2 = array(
 			'email' => 'ssa.simplyfoxy@gmail.com',
 			'name'  => 'Simply Foxy',
 		);
 
 		// Add the attendee to the array of attendees.
 		$attendess[] = $new_attendee1;
-		$attendess[] = $new_attendee2;
 	}
 	  
   return $attendess;
