@@ -13,7 +13,7 @@ Need help adjusting this mini-code snippet?
 
 Mini plugin to programatically include multiple attendees to Google Calendar Invites.
 
-Setup video: https://www.loom.com/share/61ea4921c85040aca0562c50565276f3
+Setup video: https://www.loom.com/share/0e29ebf6f3fb4a1ba23c551a0f15fbad
 
 ---
 
